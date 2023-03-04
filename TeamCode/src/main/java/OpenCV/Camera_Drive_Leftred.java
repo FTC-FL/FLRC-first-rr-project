@@ -81,10 +81,11 @@ public class Camera_Drive_Leftred extends LinearOpMode
    @Override
    public void runOpMode()
    {
+      //Pose2d startPose = new Pose2d(-35, -68, Math.toRadians(90));
 
       SampleMecanumDrive drive = new SampleMecanumDrive(hardwareMap);
 
-      Pose2d startPose = new Pose2d(-40, -68, Math.toRadians(90));
+      //Pose2d startPose = new Pose2d(-35, -68, Math.toRadians(90));
 
 
 
@@ -224,8 +225,9 @@ public class Camera_Drive_Leftred extends LinearOpMode
      if (tagOfInterest == null || tagOfInterest.id == Left){
         //left code
 
-        Trajectory traj1 = drive.trajectoryBuilder(startPose)
-                .lineToSplineHeading(new Pose2d(-40,-40, Math.toRadians(0)))
+        Trajectory traj1 = drive.trajectoryBuilder(new Pose2d())
+                .lineToLinearHeading(new Pose2d(-25, 25, Math.toRadians(0)))
+                //.forward(25)
                 .build();
 
         drive.followTrajectory(traj1);

@@ -226,8 +226,7 @@ public class Camera_Drive_Leftred extends LinearOpMode
         //left code
 
         Trajectory traj1 = drive.trajectoryBuilder(new Pose2d())
-                .lineToLinearHeading(new Pose2d(-25, 25, Math.toRadians(0)))
-                //.forward(25)
+                .splineToLinearHeading(new Pose2d(40,40,Math.toRadians(180)), Math.toRadians(0))
                 .build();
 
         drive.followTrajectory(traj1);
